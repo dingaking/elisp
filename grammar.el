@@ -16,6 +16,9 @@
 ;; ex) C-h b : 도움말 페이지 표시
 ;; 현재 사용자의 버퍼에 어떠한 기능들이 제공되며 함수 바인딩에 대한 정보를 제공합니다.
 
+;; 튜토리얼
+;; C-h t
+
 ;; interactive function
 ;; 사용자에게 직접 노출된 함수/명령
 ;; M-x:명령 -> 사용자가 직접 호출이 가능하다
@@ -228,3 +231,77 @@ no-such-a-var
 ;; 하나의 버퍼당 하나의 major-mode를 갖게 되며
 ;; 현재 버퍼의 모드는 major-mode 변수에 기록됩니다.
 major-mode
+;; C-h v:major-mode
+
+;; 유틸리티적으로 함수와 변수의 집합을 하나로 묶어 minor-mode라고 합니다.
+;; 예를들어 스펠링 체크를 위한 flyspell-mode와 네비게이션을 위한 ido-mode등이 있습니다.
+;; minor-mode는 하나의 버퍼에 여러 개의 모드를 적용할 수 있고
+;; minor-mode-list 변수에 기록됩니다.
+minor-mode-list
+
+;; Cursor Movement
+;; C-f: forward-char
+;; C-b: backward-char
+
+;; M-f: forward-word
+;; M-b: backword-word
+
+;; C-M-f: forward-sexp
+;; C-M-b: bacword-sexp
+
+;; M-}: forward-paragraph
+;; M-{: backward-paragraph
+
+;; C-:글자, M-:단어, C-M-:표현식 단위로 움직이고 f는 앞으로 b는 뒤로 이동합니다.
+;; M-} : 앞문단, M-{ : 뒷문단으로 이동합니다.
+
+;; C-a: beginning-of-line (ahead of line)
+;; C-e: end-of-line
+
+;; M-a: backward-sentence (ahead of sentence)
+;; M-e: forward-sentence
+
+;; C-M-a: beginning-of-defun (ahead of defun)
+;; C-M-e: end-of-defun
+
+;; M-<: beginning-of-buffer
+;; M->: end-of-buffer
+
+;; C-n: next-line
+;; C-p: previous-line
+
+;; C-v: scroll-up
+;; M-v: scroll-down
+
+;; 범용 인자(Universal Argument)
+;; C-u 5 C-f : 5글자 앞으로 이동
+;; forward-char의 함수에 5를 인자로 주기위해 C-u 5를 입력하고
+;; forward-char인 C-f를 입력합니다.
+;; C-u를 입력 후 숫자를 입력하지 않으면 기본으로 4가 입력된 형태로 동작합니다.
+;; C-u를 두번 입력하면 4x4인 16이 입력된 것으로 동작합니다.
+
+;; 글자, 단어, 표현식, 문단의 앞/뒤로 이동하는 함수들:
+;; C-f/b: forward/backward-char
+;; M-f/b: forward/backword-word
+;; C-M-f/b: forward/backword-sexp
+;; M-}/{: forward/backword-paragraph
+
+;; 줄, 문장, 함수, 버퍼의 시작/끝으로 이동하는 함수들:
+;; C-a/e: beginning/end-of-line
+;; M-a/e: backward/forward-sentence
+;; C-M-a/e: beginning/end-of-defun
+;; M-</>: beginning/end-of-buffer
+
+;; 다음/이전 줄, 화면으로 이동하는 함수들:
+;; C-n/p: next/previous-line
+;; C/M-v: scroll-up/down
+
+
+;; M-u: upper word: 단어를 대문자로 변경
+;; M-l: lower word: 단어를 소문자로 변경
+;; M-c: capitalize word: 단어의 첫 글자를 대문자로, 나머지는 소문자로
+;; C-t: transpose char: 앞/뒤 글자를 뒤바꿈
+;; M-t: transpose word: 앞/뒤 문자를 뒤바꿈
+;; C-M-t: transpose sexp: 앞/뒤 표현식을 뒤바꿈
+
+
