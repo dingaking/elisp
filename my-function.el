@@ -24,3 +24,26 @@
     (set-mark pt)
     ))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; (let ((variable value)
+;;      (variable value)
+;;      …)
+;;  body…)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; ex1
+(let ((a 1)
+      (b 2))
+  (* a b))
+
+;;ex1-1
+(let (a)
+  (setq a 3)
+  (* a 2))
+
+;; ex2
+(let ((zebra 'stripes)
+      (tiger 'fierce))
+  (message "One kind of animal has %s and another is %s."
+           zebra tiger))
