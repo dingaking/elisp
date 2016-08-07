@@ -133,3 +133,13 @@ then warn of a tiger."
       (delete-region p1 p2))))
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;{dadfadfadf}
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Delete Linebreaks
+(defun remove-line-breaks ()
+  "Remove line endings in current paragraph."
+  (interactive)
+  (let ((fill-column)
+        (point-max)))
+  (fill-paragraph nil))
+
