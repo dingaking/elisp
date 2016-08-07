@@ -83,3 +83,38 @@ then warn of a tiger."
   (end-of-line)
   (set-mark (line-beginning-position)))
 
+;; Find/Replace Text Region
+(defun replace-greek-region (start end)
+  "Replace 'alpha' to 'α' and other greek letters in current region."
+  (interactive "r")
+  (save-restriction
+    (narrow-to-region start end)
+    (goto-char (point-min))
+    (while (search-forward "alpha" nil t)
+      (replace-match "α" nil t))
+    (goto-char (point-min))
+    (while (search-forward "beta" nil t)
+      (replace-match "β" nil t))
+    (goto-char (point-min))
+    (while (search-forward "gamma" nil t)
+      (replace-match "γ" nil t))))
+
+;; dkdkdkd alpha dkdkdkd
+;; dkdkdkd beta dkdkdkd
+;; dkdkdkd gamma dkdkdkd
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Emulation of the vi % command
+(defun forward-or-backward-sexp (&optional arg)
+  "Go to the matching parenthesis character if one is adjacent to point."
+  (interactive "^p")
+  (cond ((looking-at "\\s(") (forward-sexp arg))
+        ((looking-back "\\s)" 1) (backward-sexp arg))
+        ;; Now, try to succeed from inside of a bracket
+        ((looking-at "\\s)") (forward-char) (backward-sexp arg))
+        ((looking-back "\\s(" 1) (backward-char) (forward-sexp arg))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; bind C-% to vi's % command  
+(global-set-key (kbd "C-%") 'forward-or-backward-sexp)
