@@ -118,3 +118,18 @@ then warn of a tiger."
 
 ;; bind C-% to vi's % command  
 (global-set-key (kbd "C-%") 'forward-or-backward-sexp)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Delete Enclosed Text
+(defun delete-enclosed-text ()
+  "Delete texts between any pair of delimiters."
+  (interactive)
+  (save-excursion
+    (let (p1 p2)
+      (skip-chars-backward "^([{<")
+      (setq p1 (point))
+      (skip-chars-forward "^)]}>")
+      (setq p2 (point))
+      (delete-region p1 p2))))
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;{dadfadfadf}
